@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  {% load staticfiles %}
+  <title>Flexbox Login/Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+  <meta charset=utf-8 />
+  
+      <link rel="stylesheet" href="{% static 'app/css/signup.css' %}">
+      <script src="jquery-2.2.3.min.js"></script>
+	<!-- //Jquery -->
+	<!-- Jquery -->
+	<script src="jquery-simple-validator.min.js"></script>
+
+  
+</head>
+
+<body onload="getLocation();">
+ <div class="flexbox" style="height: 100%;">
+  <div class="content" style="width: 600px;;">
+  {% if messages %}  {% for msg in messages %}
+          <center>
+          <p align="text-center" style="color: black;">{{msg}}</p></center>
+          {% endfor %}
+          {% endif %}
+    <div id="login" class="box show">
+     <form name="myForm" action="/vsignup/" onsubmit="return validateForm()" method="post">
+     {% csrf_token %}
+      <div class="field">
+        <div class="sign-in">Sign-up Form<br></div>
+      </div>
+      
+      
+      <div class="field" style="width: 87%;margin-left: 5%;">
+        <label >Name of Village</label>
+        <input type="text" name="vname">
+      </div>   
+      
+      <div class="field" style="width: 40%;margin-left: 5%">
+        <label>First Name of Village Head</label>
+        <input type="text"  id="name" name="fname">
+      </div>
+      
+      <div class="field" style="width: 42%;margin-left: 50%;margin-top: -13.5%;">
+        <label>Last Name Of Village Head</label>
+        <input type="text" id="middlename" name="lname">
+      </div>
+        
+      
+      
+     <div class="field" style="width: 40%;margin-left: 5%;">
+      <label>Latitude</label>
+        <input type="text"  id="lat" name="lat">
+      </div>
+      <div class="field" style="width: 40%;margin-left: 50%;">
+      <label>Longitude</label>
+        <input type="text"  id="lang" name="lang">
+      </div>
+      
+      
+      
+      <div class="field" style="width: 40%;margin-left: 5%;">
+        <label>Workforce</label>
+        <input type="number" id="Workforce" name="labour">
+      </div>
+      
+      <div class="field" style="width: 42%;margin-left: 50%;margin-top: -13.5%;">
+        <label>Nearest Raw Material 1</label>
+        <select id="dd" style="width: 100%;height: 32px; border-radius: 5px;background-color:#DCDCDC;border: none;opacity: 0.6;" name="raw1">
+           <option value="0"> --Select Option--</option>
+          <option value="aluminium">Aluminium</option>
+          <option value="coal">Coal</option>
+            <option value="cotton">Cotton</option>
+            <option value="crop">Crops</option>
+            <option value="fruits">Fruits</option>
+            <option value="glass">Glass</option>
+            <option value="iron">Iron</option>
+            <option value="malt">Malt</option>
+            <option value="milk">Milk</option>
+            <option value="ore">Ore</option>
+            <option value="petroleum">Petroleum</option>
+            <option value="plastic">Plastic</option>
+            <option value="rubber">Rubber</option>
+            <option value="sand">Sand</option>
+            <option value="seeds">Seeds</option>
+            <option value="steel">Steel</option>
+            <option value="sugar">Sugar</option>
+            <option value="sugarcane">Sugarcane</option>
+            <option value="wood">Wood</option>
+
+      
+        </select>
+      </div>
+      
+      <div class="field" style="width: 40%;margin-left: 5%;">
+        <label>Nearest Raw Material 2</label>
+        <select id="dd" style="width: 100%;height: 32px; border-radius: 5px;background-color:#DCDCDC;border: none;opacity: 0.6;" name="raw2">
+          <option value="0"> --Select Option--</option>
+          <option value="aluminium">Aluminium</option>
+          <option value="titanium">Titanium</option>
+          <option value="coal">Coal</option> 
+            <option value="cotton">Cotton</option>
+            <option value="crops">Crops</option>
+          
+            <option value="fruits">Fruits</option>
+            <option value="glass">Glass</option>
+            
+            <option value="iron">Iron</option>
+            <option value="limestone">Limestone</option>
+            
+            
+            <option value="nickel">Nickel</option>
+            
+            <option value="pesticides">Pesticide</option>
+            <option value="petroleum">Petroleum</option>
+            <option value="plastic">Plastic</option>
+            <option value="rubber">Rubber</option>
+            <option value="sand">Sand</option>
+          <option value="steel">Steel</option>
+            
+            <option value="stones">Stones</option>
+           
+           
+            <option value="wood">Wood</option>
+            <option value="yarn">Yarn</option>
+            <option value="yeast">Yeast</option>
+        </select>
+      </div>
+      
+      <div class="field" style="width: 42%;margin-left: 50%;margin-top: -13.5%;">
+        <label>Nearest Raw Material 3</label>
+        <select id="dd" style="width: 100%;height: 32px; border-radius: 5px;background-color:#DCDCDC;border: none;opacity: 0.6;" name="raw3">
+          <option value="0"> --Select Option--</option>
+           <option value="aluminium">Aluminium</option>
+          <option value="Composite_Materials">Composite materials</option>
+          <option value="cereals">Cereal</option>
+          <option value="cobalt">Cobalt</option>
+          <option value="calcium carbonte">calcium carbonate</option>
+          <option value="fertilizers">Fertilizers</option>
+           <option value="iron">Iron</option>
+           <option value="coal">Coal</option>
+            <option value="hopes">Hopes</option>
+            <option value="plastic">Plastic</option>
+            <option value="glass">Glass</option>
+            <option value="fruits">Fruits</option>
+            <option value="steel">Steel</option>
+            <option value="fabric">Fabric</option>
+            <option value="limestone">Limestone</option>
+            <option value="crops">Crops</option>
+            <option value="petroleum">Petroleum</option>
+            <option value="rubber">Rubber</option>
+            <option value="sand">Sand</option>
+            <option value="stones">Stones</option>
+            <option value="wood">Wood</option>
+        </select>
+      </div>
+      
+      <div class="field" style="width: 40%;margin-left: 5%;">
+        <label>Password</label>
+        <input type="password" id="pwd1" name="ps">
+      </div>
+      
+      <div class="field" style="width: 42%;margin-left: 50%;margin-top: -13.2%;">
+        <label>Confirm Password</label>
+        <input type="password" id="pwd2">
+      </div>
+      
+      <div style="margin-left: 25px;">
+      <label>Water Resource</label><br>
+      <input type="radio" name="gender" value="h" id="ma" name="water">Large <br>
+      <input type="radio" name="gender" value="m" id="fe" name="water">Medium<br>
+      <input type="radio" name="gender" value="l" id="pre" name="water">Scarce<br>
+      </div>
+
+	<div class="field" style="width: 42%;margin-left: 50%;margin-top: -13.2%;">
+        <label>Fallow land in meter square</label>
+        <input type="number" id="fl" name="land">
+     	</div>
+      <br>
+      <br>
+       
+      <div class="field" style="width: 88%;margin-left: 5%;">
+        <!--<button class="btn-sign-in" value="submit">Sign In</button>
+        <!--<input type="submit" style="margin-left:10px;" value="Submit" onclick="return validation()">-->
+        <input type="submit" value="Submit" style="background:#00a6de;color: white;cursor: pointer;">
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+ 
+<script>
+    
+function validateForm() {
+     var x = document.getElementById("name").value;
+   
+if (x =="") {
+    alert("Name must be filled out");
+    return false;
+}
+    
+ var matches = x.match(/\d+/g);
+        
+if (matches != null) {
+alert("Any name field cannot contain any number");
+return false;
+}
+    
+ var x = document.getElementById("middlename").value;
+   
+if (x =="") {
+    alert("Name must be filled out");
+    return false;
+}
+    
+ var matches = x.match(/\d+/g);
+        
+if (matches != null) {
+alert("Any name field cannot contain any number");
+return false;
+}
+    
+    var x = document.getElementById("lastname").value;
+   
+if (x =="") {
+    alert("Name must be filled out");
+    return false;
+}
+    
+ var matches = x.match(/\d+/g);
+        
+if (matches != null) {
+alert("Any name field cannot contain any number");
+return false;
+}
+    
+    var x = document.getElementById("email").value;
+    if (x=NULL) {
+     alert("All fields must be filled");
+        return false;
+    }
+       
+    if(document.getElementById("addr").value=="")
+        {
+            alert("Please Enter your address");
+            return false;
+        }
+    
+    
+if(document.getElementById("pwd1").value.length < 8) {
+        alert("Error: Password must contain at least eight characters!");
+        return false;
+      }
+    var re = /[0-9]/;
+      if(!re.test(document.getElementById("pwd1").value)) {
+        alert("Error: password must contain at least one number (0-9)!");
+        return false;
+      }
+      re = /[a-z]/;
+      if(!re.test(document.getElementById("pwd1").value)) {
+        alert("Error: password must contain at least one lowercase letter (a-z)!");
+        return false;
+      }
+      re = /[A-Z]/;
+      if(!re.test(document.getElementById("pwd1").value)) {
+
+        alert("Error: password must contain at least one uppercase letter (A-Z)!");
+        return false;
+      }
+    var pass=document.getElementById("pwd1").value;
+    var confi=document.getElementById("pwd2").value;
+    
+    if(pass!=confi){
+        alert("Error:Password Doesnt match");
+        return false;
+    }
+    if(document.getElementById("ma").checked==false&&document.getElementById("fe").checked==false&&document.getElementById("pre").checked==false)
+        {
+            alert("Please select your gender");
+            return false;
+        }
+    
+}
+</script>
+     <script src="{% static 'app/js/signup.js' %}"></script>
+
+
+ <script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(100)
+                    .height(100);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    </script>
+         <script>
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    document.getElementById("lat").value =  position.coords.latitude ; 
+     document.getElementById("lat").value= position.coords.longitude;
+}
+</script>       
+</body>
+
+</html>

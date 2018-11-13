@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  {% load staticfiles %}
+  <meta charset="UTF-8">
+  <title>SHG SignUp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+  <meta charset=utf-8 />
+  
+      <link rel="stylesheet" href="{% static 'app/css/signup.css' %}">
+      
+      <script src="jquery-2.2.3.min.js"></script>
+	<!-- //Jquery -->
+	<!-- Jquery -->
+	<script src="jquery-simple-validator.min.js"></script>
+
+  
+</head>
+
+<body>
+ <div class="flexbox" style="height: 100%;">
+  <div class="content" style="width: 600px;">
+    <div id="login" class="box show" style="height:auto;">
+     <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+      <div class="field">
+        <div class="sign-in">Sign-up Form<br></div>
+      </div>
+      
+      
+      <div class="field" style="width: 87%;margin-left: 5%;">
+        <label >Name of SHG</label>
+        <input type="text">
+      </div>   
+      
+      <div class="field" style="width: 40%;margin-left: 5%">
+        <label>First Name Of SHG Director</label>
+        <input type="text"  id="name">
+      </div>
+      
+      <div class="field" style="width: 42%;margin-left: 50%;margin-top: -13.5%;">
+        <label>Last Name Of SHG Director</label>
+        <input type="text" id="middlename">
+      </div>
+        
+      
+      
+     <div class="field" style="width: 87%;margin-left: 5%;">
+      <label>Address</label>
+        <input type="text"  id="addr">
+      </div>
+      
+      
+      
+      <div class="field" style="width: 40%;margin-left: 5%;">
+        <label>Number of Members</label>
+        <input type="number" id="email">
+      </div>
+      
+      <div class="field" style="width: 42%;margin-left: 50%;margin-top: -13.5%;">
+        <label>End product</label>
+        <select id="dd" style="width: 100%;height: 32px; border-radius: 5px;background-color:#DCDCDC;border: none;opacity: 0.6;">
+          <option value="0"> --Select Option--</option>
+          <option value="1">Food/Edible item</option>
+          <option value="2">Cosmetics</option>
+          <option value="3">Decorative Items/Handicraft/Furniture</option>
+          <option value="4">Garments</option>
+          <option value="5">Animal Husbandary/Dairy</option>
+        </select>
+      </div>
+      
+      <div class="field" style="width: 40%;margin-left: 5%;">
+        <label>Password</label>
+        <input type="password" id="pwd1">
+      </div>
+      
+      <div class="field" style="width: 42%;margin-left: 50%;margin-top: -13.2%;">
+        <label>Confirm Password</label>
+        <input type="password" id="pwd2">
+      </div>
+      
+      <!--div style="margin-left: 25px;">
+      <label>Gender</label><br>
+      <input type="radio" name="gender" value="male" id="ma"> Male<br>
+      <input type="radio" name="gender" value="female" id="fe"> Female<br>
+      <input type="radio" name="gender" value="other" id="pre"> Prefer Not to mention<br>
+      </div-->
+      
+      <!--div  style="width: 88%;margin-left: 5%;position: relative;">
+         <img id="blah" src="#" alt="your image" style="margin-left: 70%;margin-top:-100px;"/>
+          <p style="margin-top: 50px;float: bottom;">Upload Photo of SHG Director</p>
+      <img src="1.jpg" style="width: 100px;margin-left: 70%;margin-top: -34px;position: absolute;">
+      <input id="file-input" type="file" name="name" style="display: block;margin-top: -34px;margin-left: 70%;z-index: 2;position: relative;opacity: 0;" onchange="readURL(this);"/>
+      </div-->
+      <br>
+       
+      <div class="field" style="width: 88%;margin-left: 5%;">
+        <!--<button class="btn-sign-in" value="submit">Sign In</button>
+        <!--<input type="submit" style="margin-left:10px;" value="Submit" onclick="return validation()">-->
+        <input type="submit" value="Submit" style="background:#00a6de;color: white;cursor: pointer;">
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+ 
+<script>
+    
+function validateForm() {
+     var x = document.getElementById("name").value;
+   
+if (x =="") {
+    alert("Name must be filled out");
+    return false;
+}
+    
+ var matches = x.match(/\d+/g);
+        
+if (matches != null) {
+alert("Any name field cannot contain any number");
+return false;
+}
+    
+ var x = document.getElementById("middlename").value;
+   
+if (x =="") {
+    alert("Name must be filled out");
+    return false;
+}
+    
+ var matches = x.match(/\d+/g);
+        
+if (matches != null) {
+alert("Any name field cannot contain any number");
+return false;
+}
+    
+    var x = document.getElementById("lastname").value;
+   
+if (x =="") {
+    alert("Name must be filled out");
+    return false;
+}
+    
+ var matches = x.match(/\d+/g);
+        
+if (matches != null) {
+alert("Any name field cannot contain any number");
+return false;
+}
+    
+    var x = document.getElementById("email").value;
+    if (x=NULL) {
+     alert("All fields must be filled");
+        return false;
+    }
+       
+    if(document.getElementById("addr").value=="")
+        {
+            alert("Please Enter your address");
+            return false;
+        }
+    
+    
+if(document.getElementById("pwd1").value.length < 8) {
+        alert("Error: Password must contain at least eight characters!");
+        return false;
+      }
+    var re = /[0-9]/;
+      if(!re.test(document.getElementById("pwd1").value)) {
+        alert("Error: password must contain at least one number (0-9)!");
+        return false;
+      }
+      re = /[a-z]/;
+      if(!re.test(document.getElementById("pwd1").value)) {
+        alert("Error: password must contain at least one lowercase letter (a-z)!");
+        return false;
+      }
+      re = /[A-Z]/;
+      if(!re.test(document.getElementById("pwd1").value)) {
+
+        alert("Error: password must contain at least one uppercase letter (A-Z)!");
+        return false;
+      }
+    var pass=document.getElementById("pwd1").value;
+    var confi=document.getElementById("pwd2").value;
+    
+    if(pass!=confi){
+        alert("Error:Password Doesnt match");
+        return false;
+    }
+    if(document.getElementById("ma").checked==false&&document.getElementById("fe").checked==false&&document.getElementById("pre").checked==false)
+        {
+            alert("Please select your gender");
+            return false;
+        }
+    
+}
+</script>
+    <script src="{% static 'app/js/signup.js' %}"></script>
+
+ <script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(100)
+                    .height(100);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    </script>
+                
+</body>
+
+</html>
