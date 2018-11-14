@@ -33,8 +33,14 @@
 	
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url({% static 'app/img/bg-01.jpg' %});">
+			{% if messages %}  {% for msg in messages %}
+		      <center>
+		      <p align="text-center" style="color: black;">{{msg}}</p></center>
+		      {% endfor %}
+		      {% endif %}
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post" action="/slogin/">
+				{% csrf_token %}
 					<span class="login100-form-logo">
 						<i class="fa fa-user"></i>
 					</span>
@@ -44,7 +50,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="Username">
+						<input class="input100" type="text" name="name" placeholder="Username">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 

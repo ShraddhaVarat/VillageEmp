@@ -11,5 +11,6 @@ urlpatterns = [
 	path('ssignup/', views.ssignup, name='ssignup'),
 	path('vsignup/', views.vsignup, name='vsignup'),
 	path('ind/', views.ind, name='ind'),
+	path('shg/', views.shg, name='shg'),
 	path('vdashboard/', views.vdashboard, name='vdashboard'),
 ]
